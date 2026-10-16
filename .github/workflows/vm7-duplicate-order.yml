@@ -1,0 +1,25 @@
+name: VM7 Duplicate Order Control 261017
+
+on:
+  workflow_dispatch:
+    inputs:
+      result:
+        description: Outcome for the fixed PR head
+        required: true
+        type: choice
+        options:
+          - failure
+          - success
+
+jobs:
+  gate:
+    name: VM7 Duplicate Gate 261017
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit controlled result
+        shell: bash
+        run: |
+          if [ "${{ inputs.result }}" = "failure" ]; then
+            exit 1
+          fi
+          exit 0
