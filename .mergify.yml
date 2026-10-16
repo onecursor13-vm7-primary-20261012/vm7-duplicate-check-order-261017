@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: exact duplicate check ordering discriminator
+    conditions:
+      - check-success = @github-actions/VM7 Duplicate Gate 261017
+    actions:
+      comment:
+        message: VM7_DUPLICATE_CHECK_EXACT_MATCH_261017
