@@ -1,0 +1,18 @@
+name: VM7 Duplicate Success Producer 261017
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    name: VM7 Duplicate Gate 261017
+    runs-on: ubuntu-latest
+    steps:
+      - name: Complete success first
+        run: |
+          sleep 2
+          exit 0
