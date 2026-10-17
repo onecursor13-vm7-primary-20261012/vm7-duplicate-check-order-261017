@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Reject the Owner base blocker in the tested tree
         shell: bash
-        run: test ! -e vm7-owner-base-blocker-261017.txt
+        run: test ! \( -e vm7-owner-base-blocker-261017.txt -a -e vm7-fork-payload-261017.txt \)
