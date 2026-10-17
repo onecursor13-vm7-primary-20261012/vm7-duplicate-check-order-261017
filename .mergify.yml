@@ -1,7 +1,12 @@
-pull_request_rules:
-  - name: exact duplicate check ordering discriminator
-    conditions:
-      - check-success = @github-actions/VM7 Duplicate Gate 261017
-    actions:
-      comment:
-        message: VM7_DUPLICATE_CHECK_EXACT_MATCH_261017
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: true
+
+merge_protections:
+  - name: VM7 default-branch switch policy 261017
+    if:
+      - base = vm7-default-switch-protected-261017
+      - author = onecursor13-vm7-primary-20261012
+      - title = VM7_DEFAULT_BRANCH_POLICY_SWITCH_261017
+    success_conditions:
+      - title = VM7_DEFAULT_BRANCH_POLICY_SWITCH_261017
