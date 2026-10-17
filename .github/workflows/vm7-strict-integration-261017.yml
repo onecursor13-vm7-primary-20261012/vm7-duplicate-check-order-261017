@@ -1,0 +1,17 @@
+name: VM7 Strict Integration Gate 261017
+on:
+  pull_request:
+    branches:
+      - vm7-strict-status-merge-261017
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+jobs:
+  strict_integration:
+    name: VM7 Strict Integration Gate 261017
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject the Owner base blocker in the tested tree
+        shell: bash
+        run: test ! -e vm7-owner-base-blocker-261017.txt
