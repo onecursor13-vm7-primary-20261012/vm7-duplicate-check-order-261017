@@ -1,12 +1,7 @@
-merge_protections_settings:
-  reporting_method: check-runs
-  post_comment: true
-  auto_merge_conditions:
-    - label = vm7-ready-revocable-261017
-
-merge_protections:
-  - name: VM7 auto-merge revocation gate 261017
-    if:
-      - base = main
-    success_conditions:
-      - check-success = VM7 Delayed Gate 261017
+pull_request_rules:
+  - name: exact duplicate check ordering discriminator
+    conditions:
+      - check-success = @github-actions/VM7 Duplicate Gate 261017
+    actions:
+      comment:
+        message: VM7_DUPLICATE_CHECK_EXACT_MATCH_261017
